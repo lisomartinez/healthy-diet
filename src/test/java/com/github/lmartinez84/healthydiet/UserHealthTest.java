@@ -1,6 +1,6 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.user.User;
+import com.github.lmartinez84.healthydiet.domain.user.User;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;

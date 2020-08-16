@@ -1,8 +1,9 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.recipe.Recipe;
-import com.github.lmartinez84.healthydiet.user.User;
-import com.github.lmartinez84.healthydiet.user.dietary_requirement.FoodGroup;
+import com.github.lmartinez84.healthydiet.domain.*;
+import com.github.lmartinez84.healthydiet.domain.recipe.Recipe;
+import com.github.lmartinez84.healthydiet.domain.user.User;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.FoodGroup;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.github.lmartinez84.healthydiet.recipe.RecipeBuilder.aRecipe;
+import static com.github.lmartinez84.healthydiet.domain.recipe.RecipeBuilder.aRecipe;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RecipeTest {

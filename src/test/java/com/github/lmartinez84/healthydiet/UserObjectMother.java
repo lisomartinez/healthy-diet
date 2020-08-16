@@ -1,15 +1,16 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.user.User;
-import com.github.lmartinez84.healthydiet.user.UserBuilder;
-import com.github.lmartinez84.healthydiet.user.dietary_requirement.DiabeticDietaryRequirement;
-import com.github.lmartinez84.healthydiet.user.dietary_requirement.HypertensiveDietaryRequirement;
+import com.github.lmartinez84.healthydiet.domain.Routine;
+import com.github.lmartinez84.healthydiet.domain.user.User;
+import com.github.lmartinez84.healthydiet.domain.user.UserBuilder;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.DiabeticDietaryRequirement;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.HypertensiveDietaryRequirement;
 
 import java.time.LocalDate;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.github.lmartinez84.healthydiet.user.UserBuilder.aUser;
+import static com.github.lmartinez84.healthydiet.domain.user.UserBuilder.aUser;
 
 public class UserObjectMother {
     public static User createUserWithWeightAndHeight(double weight, double height) {
