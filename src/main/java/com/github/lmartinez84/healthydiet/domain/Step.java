@@ -11,4 +11,8 @@ public class Step {
     public static Step of(String description) {
         return new Step(description);
     }
+
+    public Step copy() {
+        return new Step(description);
+    }
 }

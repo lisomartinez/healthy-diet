@@ -36,4 +36,8 @@ public class Ingredient {
     public Set<FoodInadequacy> inadequateFor() {
         return food.isInadequateFor();
     }
+
+    public Ingredient copy() {
+        return new Ingredient(food.copy(), quantity);
+    }
 }

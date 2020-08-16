@@ -15,8 +15,12 @@ public class DescriptionQuantity implements Quantity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         DescriptionQuantity that = (DescriptionQuantity) o;
         return description.equals(that.description);
     }

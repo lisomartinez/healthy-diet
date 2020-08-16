@@ -9,6 +9,7 @@ import com.github.lmartinez84.healthydiet.domain.recipe.exceptions.InvalidNumber
 import com.github.lmartinez84.healthydiet.domain.user.User;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -19,6 +20,7 @@ import static java.util.stream.Collectors.toSet;
 public class Recipe {
     public static final int MIN_CALORIES = 10;
     public static final int MAX_CALORIES = 5000;
+
     private final String name;
     private final User author;
     private final Set<User> collaborators;
@@ -26,6 +28,8 @@ public class Recipe {
     private final List<Step> steps;
     private final int calories;
     private List<Recipe> subRecipes;
+    private boolean copied;
+    private Recipe original;
 
     public Recipe(String name,
                   User author,
@@ -42,6 +46,8 @@ public class Recipe {
         this.collaborators = collaborators;
         this.ingredients = ingredients;
         this.steps = steps;
+        this.copied = false;
+        this.original = null;
         this.validateRecipe(this);
     }
 
@@ -115,5 +121,52 @@ public class Recipe {
         return ingredients.stream()
                           .map(Ingredient::inadequateFor)
                           .flatMap(Collection::stream);
+    }
+
+    public Recipe copy(User copier) {
+        String newName = new String(this.name);
+        Set<Ingredient> newIngredients = this.ingredients.stream()
+                                                         .map(Ingredient::copy)
+                                                         .collect(toSet());
+        List<Step> newSteps = this.steps.stream()
+                                        .map(Step::copy)
+                                        .collect(toList());
+
+        List<Recipe> newSubRecipes = this.subRecipes.stream()
+                                                    .map(subrecipe -> subrecipe.copy(this.author))
+                                                    .collect(toList());
+
+        Recipe copiedRecipe = new Recipe(newName, copier, Set.of(), calories, newIngredients, newSteps, newSubRecipes);
+        copiedRecipe.copied = true;
+        copiedRecipe.original = this;
+        return copiedRecipe;
+    }
+
+    public User author() {
+        return author;
+    }
+
+    public String name() {
+        return name;
+    }
+
+    public Set<User> collaborators() {
+        return Collections.unmodifiableSet(collaborators);
+    }
+
+    public Set<Ingredient> ingredients() {
+        return Collections.unmodifiableSet(ingredients);
+    }
+
+    public void addCollaborator(User collaborator) {
+        collaborators.add(collaborator);
+    }
+
+    public Recipe original() {
+        if (copied) {
+            return original;
+        } else {
+            return this;
+        }
     }
 }

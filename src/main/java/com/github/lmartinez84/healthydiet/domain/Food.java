@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
 
-public class Food {
+public final class Food {
     private final String name;
     private final FoodGroup group;
     private final Set<FoodInadequacy> inadequacies;
@@ -43,5 +43,9 @@ public class Food {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public Food copy() {
+        return new Food(name, group, inadequacies);
     }
 }
