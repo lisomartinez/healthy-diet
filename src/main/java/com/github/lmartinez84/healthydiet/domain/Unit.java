@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public final class Unit {
     public static final Unit KILOGRAMS = new Unit("Kg.");
+    public static final Unit GRAMS = new Unit("Gr.");
     private final String value;
 
     private Unit(@NotNull(message = "unit cannot be null") String value) {

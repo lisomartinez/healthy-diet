@@ -1,9 +1,13 @@
 package com.github.lmartinez84.healthydiet;
 
+import com.github.lmartinez84.healthydiet.domain.Routine;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
+import static com.github.lmartinez84.healthydiet.domain.user.UserBuilder.aUser;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class UserTest {
@@ -73,5 +77,103 @@ class UserTest {
         double expectedBMI = 46.29629629629629;
 
         assertThat(user.calculateBMI()).isCloseTo(expectedBMI, offset);
+    }
+
+    @Test
+    void sane_username_are_equals() {
+        User user = aUser()
+                .firstName("Juan Pablo")
+                .lastName("Perez")
+                .username("jp")
+                .weight(90)
+                .height(1.8)
+                .routine(Routine.ACTIVE)
+                .dateOfBirth(LocalDate.of(2001, 9, 11))
+                .build();
+
+        User otherUser = aUser()
+                .firstName("Juan Pablo")
+                .lastName("Perez")
+                .username("jp")
+                .weight(90)
+                .height(1.8)
+                .routine(Routine.ACTIVE)
+                .dateOfBirth(LocalDate.of(2001, 9, 11))
+                .build();
+        assertThat(user).isEqualTo(otherUser);
+    }
+
+    @Test
+    void different_username_are_not_equals() {
+        User user = aUser()
+                .firstName("Juan Pablo")
+                .lastName("Perez")
+                .username("jpa")
+                .weight(90)
+                .height(1.8)
+                .routine(Routine.ACTIVE)
+                .dateOfBirth(LocalDate.of(2001, 9, 11))
+                .build();
+
+        User otherUser = aUser()
+                .firstName("Juan Pablo")
+                .lastName("Perez")
+                .username("jp")
+                .weight(90)
+                .height(1.8)
+                .routine(Routine.ACTIVE)
+                .dateOfBirth(LocalDate.of(2001, 9, 11))
+                .build();
+        assertThat(user).isNotEqualTo(otherUser);
+    }
+
+    @Test
+    void same_username_same_hashcode() {
+        User user = aUser()
+                .firstName("Juan Pablo")
+                .lastName("Perez")
+                .username("jp")
+                .weight(90)
+                .height(1.8)
+                .routine(Routine.ACTIVE)
+                .dateOfBirth(LocalDate.of(2001, 9, 11))
+                .build();
+
+        User otherUser = aUser()
+                .firstName("Juan Pablo")
+                .lastName("Perez")
+                .username("jp")
+                .weight(90)
+                .height(1.8)
+                .routine(Routine.ACTIVE)
+                .dateOfBirth(LocalDate.of(2001, 9, 11))
+                .build();
+        assertThat(user).isEqualTo(otherUser);
+        assertThat(user.hashCode()).isEqualTo(otherUser.hashCode());
+    }
+
+    @Test
+    void different_username_different_hashcode() {
+        User user = aUser()
+                .firstName("Juan Pablo")
+                .lastName("Perez")
+                .username("jpa")
+                .weight(90)
+                .height(1.8)
+                .routine(Routine.ACTIVE)
+                .dateOfBirth(LocalDate.of(2001, 9, 11))
+                .build();
+
+        User otherUser = aUser()
+                .firstName("Juan Pablo")
+                .lastName("Perez")
+                .username("jp")
+                .weight(90)
+                .height(1.8)
+                .routine(Routine.ACTIVE)
+                .dateOfBirth(LocalDate.of(2001, 9, 11))
+                .build();
+        assertThat(user).isNotEqualTo(otherUser);
+        assertThat(user.hashCode()).isNotEqualTo(otherUser.hashCode());
     }
 }
