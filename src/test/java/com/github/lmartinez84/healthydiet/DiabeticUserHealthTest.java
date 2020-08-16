@@ -13,7 +13,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DiabeticUserHealthTest {
+class DiabeticUserHealthTest {
     Set<DietaryRequirement> diabeticDietaryRequirement;
 
     @BeforeEach
@@ -22,7 +22,7 @@ public class DiabeticUserHealthTest {
     }
 
     @Test
-    public void is_unhealthy_when_has_normal_weight_but_hasnt_an_active_routine_or_weight_under_or_equal_70kg() {
+    void is_unhealthy_when_has_normal_weight_but_hasnt_an_active_routine_or_weight_under_or_equal_70kg() {
         User anUnhealthyDiabetic = UserObjectMother.aRandomUserWith()
                                                    .weight(91)
                                                    .height(1.8)
@@ -33,11 +33,11 @@ public class DiabeticUserHealthTest {
                                                    .routine(Routine.LOW)
                                                    .build();
 
-        assertThat(anUnhealthyDiabetic.isHealthy()).isEqualTo(false);
+        assertThat(anUnhealthyDiabetic.isHealthy()).isFalse();
     }
 
     @Test
-    public void is_healthy_when_has_an_active_routine() {
+    void is_healthy_when_has_an_active_routine() {
         User aHealthyDiabetic = UserObjectMother.aRandomUserWith()
                                                 .weight(91)
                                                 .height(1.8)
@@ -47,11 +47,11 @@ public class DiabeticUserHealthTest {
                                                                                FoodGroup.VEGETABLES_FRUITS_SEED,
                                                                                Set.of())))
                                                 .build();
-        assertThat(aHealthyDiabetic.isHealthy()).isEqualTo(true);
+        assertThat(aHealthyDiabetic.isHealthy()).isTrue();
     }
 
     @Test
-    public void is_healthy_when_its_weight_is_less_than_or_equal_to_70() {
+    void is_healthy_when_its_weight_is_less_than_or_equal_to_70() {
         User aHealthyDiabetic = UserObjectMother.aRandomUserWith()
                                                 .weight(70)
                                                 .height(1.8)
@@ -61,6 +61,6 @@ public class DiabeticUserHealthTest {
                                                                                FoodGroup.VEGETABLES_FRUITS_SEED,
                                                                                Set.of())))
                                                 .build();
-        assertThat(aHealthyDiabetic.isHealthy()).isEqualTo(true);
+        assertThat(aHealthyDiabetic.isHealthy()).isTrue();
     }
 }

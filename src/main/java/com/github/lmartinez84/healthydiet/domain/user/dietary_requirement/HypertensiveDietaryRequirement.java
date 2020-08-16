@@ -7,12 +7,12 @@ import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.except
 public class HypertensiveDietaryRequirement implements DietaryRequirement {
     @Override
     public boolean isCompensated(User user) {
-        return user.routine().equals(Routine.INTENSIVE);
+        return user.routine() == Routine.INTENSIVE;
     }
 
     @Override
     public void validate(User user) {
-        if (user.favoritesFoods().size() < 1) {
+        if (user.favoritesFoods().isEmpty()) {
             throw new HypertensiveHasNotFavoriteFoodUserException();
         }
     }

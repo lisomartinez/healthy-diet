@@ -3,7 +3,7 @@ package com.github.lmartinez84.healthydiet.domain;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-public class Unit {
+public final class Unit {
     public static final Unit KILOGRAMS = new Unit("Kg.");
     private final String value;
 
@@ -13,8 +13,12 @@ public class Unit {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Unit unit = (Unit) o;
         return value.equals(unit.value);
     }

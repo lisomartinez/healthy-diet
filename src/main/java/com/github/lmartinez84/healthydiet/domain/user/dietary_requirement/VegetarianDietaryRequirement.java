@@ -3,6 +3,9 @@ package com.github.lmartinez84.healthydiet.domain.user.dietary_requirement;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 
 public class VegetarianDietaryRequirement implements DietaryRequirement {
+
+    public static final int THIRTY = 30;
+
     @Override
     public boolean isCompensated(User user) {
         return isUnderThirty(user) || favoriteFoodsDoNotContainFats(user);
@@ -20,6 +23,6 @@ public class VegetarianDietaryRequirement implements DietaryRequirement {
     }
 
     private boolean isUnderThirty(User user) {
-        return user.age() < 30;
+        return user.age() < THIRTY;
     }
 }

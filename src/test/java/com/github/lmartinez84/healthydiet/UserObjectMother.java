@@ -12,8 +12,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static com.github.lmartinez84.healthydiet.domain.user.UserBuilder.aUser;
 
-public class UserObjectMother {
-    public static User createUserWithWeightAndHeight(double weight, double height) {
+class UserObjectMother {
+    static User createUserWithWeightAndHeight(double weight, double height) {
         return aUser()
                 .firstName("Juan Pablo")
                 .lastName("Perez")
@@ -25,7 +25,7 @@ public class UserObjectMother {
                 .build();
     }
 
-    public static UserBuilder aRandomUserWith() {
+    static UserBuilder aRandomUserWith() {
         return aUser()
                 .username("jp")
                 .firstName("Juan Pablo")
@@ -35,7 +35,7 @@ public class UserObjectMother {
     }
 
 
-    public static User userWithNullFirstName() {
+    static User userWithNullFirstName() {
         return aUser()
                 .firstName(null)
                 .lastName("Perez")
@@ -47,7 +47,7 @@ public class UserObjectMother {
                 .build();
     }
 
-    public static User userWithEmptyFirstName() {
+    static User userWithEmptyFirstName() {
         return aUser()
                 .firstName("")
                 .lastName("Perez")
@@ -59,7 +59,7 @@ public class UserObjectMother {
                 .build();
     }
 
-    public static User userWithZeroWeight() {
+    static User userWithZeroWeight() {
         return aUser()
                 .firstName("Juan Pablo")
                 .lastName("Perez")
@@ -71,7 +71,7 @@ public class UserObjectMother {
                 .build();
     }
 
-    public static User userWithZeroHeight() {
+    static User userWithZeroHeight() {
         return aUser()
                 .firstName("Juan Pablo")
                 .lastName("Perez")
@@ -83,7 +83,7 @@ public class UserObjectMother {
                 .build();
     }
 
-    public static User userWithoutBirthDate() {
+    static User userWithoutBirthDate() {
         return aUser()
                 .firstName("Juan Pablo")
                 .lastName("Perez")
@@ -95,7 +95,7 @@ public class UserObjectMother {
                 .build();
     }
 
-    public static User createRandomUser() {
+    static User createRandomUser() {
         return UserBuilder.aUser()
                           .firstName("Juan Pablo" + ThreadLocalRandom.current().nextInt())
                           .lastName("Perez" + ThreadLocalRandom.current().nextInt())
@@ -107,7 +107,7 @@ public class UserObjectMother {
                           .build();
     }
 
-    public static User userWithoutBirthDateInThePast() {
+    static User userWithoutBirthDateInThePast() {
         return UserBuilder.aUser()
                           .firstName("Juan Pablo" + ThreadLocalRandom.current().nextInt())
                           .lastName("Perez" + ThreadLocalRandom.current().nextInt())
@@ -119,7 +119,7 @@ public class UserObjectMother {
                           .build();
     }
 
-    public static User userWithoutRoutine() {
+    static User userWithoutRoutine() {
         return UserBuilder.aUser()
                           .firstName("Juan Pablo" + ThreadLocalRandom.current().nextInt())
                           .lastName("Perez" + ThreadLocalRandom.current().nextInt())
@@ -130,7 +130,7 @@ public class UserObjectMother {
                           .build();
     }
 
-    public static User userWithShortFirstName() {
+    static User userWithShortFirstName() {
         return UserBuilder.aUser()
                           .firstName("Jua")
                           .lastName("Perez" + ThreadLocalRandom.current().nextInt())
@@ -142,7 +142,7 @@ public class UserObjectMother {
                           .build();
     }
 
-    public static User hypertensiveUserWithoutFavoriteFood() {
+    static User hypertensiveUserWithoutFavoriteFood() {
         return UserBuilder.aUser()
                           .firstName("Juan pablo" + ThreadLocalRandom.current().nextInt())
                           .lastName("Perez" + ThreadLocalRandom.current().nextInt())
@@ -155,7 +155,7 @@ public class UserObjectMother {
                           .build();
     }
 
-    public static User diabeticUserWithoutFavoriteFood() {
+    static User diabeticUserWithoutFavoriteFood() {
         return UserBuilder.aUser()
                           .firstName("Juan pablo" + ThreadLocalRandom.current().nextInt())
                           .lastName("Perez" + ThreadLocalRandom.current().nextInt())

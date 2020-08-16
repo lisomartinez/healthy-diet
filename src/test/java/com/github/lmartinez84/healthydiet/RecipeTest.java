@@ -14,37 +14,37 @@ import java.util.stream.Stream;
 import static com.github.lmartinez84.healthydiet.domain.recipe.RecipeBuilder.aRecipe;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RecipeTest {
+class RecipeTest {
 
     @Test
-    public void can_be_edited_by_its_author() {
+    void can_be_edited_by_its_author() {
         User itsAuthor = RecipeObjectMother.createUser("jp");
         Recipe recipe = RecipeObjectMother.createARecipeWithAuthor(itsAuthor, Set.of());
 
-        assertThat(recipe.isEditableBy(itsAuthor)).isEqualTo(true);
+        assertThat(recipe.isEditableBy(itsAuthor)).isTrue();
     }
 
     @Test
-    public void cannot_be_edited_by_a_user_thats_neither_its_author_nor_a_collaborator() {
+    void cannot_be_edited_by_a_user_thats_neither_its_author_nor_a_collaborator() {
         User itsAuthor = RecipeObjectMother.createUser("jp");
         User otherUser = RecipeObjectMother.createUser("otherUser");
 
         Recipe recipe = RecipeObjectMother.createARecipeWithAuthor(itsAuthor, Set.of());
 
-        assertThat(recipe.isEditableBy(otherUser)).isEqualTo(false);
+        assertThat(recipe.isEditableBy(otherUser)).isFalse();
     }
 
     @Test
-    public void can_be_edited_by_a_collaborator() {
+    void can_be_edited_by_a_collaborator() {
         User itsAuthor = RecipeObjectMother.createUser("jp");
         User aCollaborator = RecipeObjectMother.createUser("otherUser");
 
         Recipe recipe = RecipeObjectMother.createARecipeWithAuthor(itsAuthor, Set.of(aCollaborator));
-        assertThat(recipe.isEditableBy(aCollaborator)).isEqualTo(true);
+        assertThat(recipe.isEditableBy(aCollaborator)).isTrue();
     }
 
     @Test
-    public void can_have_subrecipes() {
+    void can_have_subrecipes() {
         Recipe subRecipe = aRecipe()
                 .name("pollo con paas")
                 .author(RecipeObjectMother.createUser("jp"))
@@ -74,7 +74,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void calories_are_the_sum_of_its_calories_and_subrecipes_calroies() {
+    void calories_are_the_sum_of_its_calories_and_subrecipes_calroies() {
         Recipe subRecipe = aRecipe()
                 .name("pollo con paas")
                 .author(RecipeObjectMother.createUser("jp"))
@@ -101,7 +101,7 @@ public class RecipeTest {
     }
 
     @Test
-    public void inadequadecies_are_its_inadequacies_and_of_its_subrecipes() {
+    void inadequadecies_are_its_inadequacies_and_of_its_subrecipes() {
         Set<FoodInadequacy> subRecipeInadequancies = Set.of(FoodInadequacy.CELIAC, FoodInadequacy.HYPERTENSIVE);
         Recipe subRecipe = aRecipe()
                 .name("pollo con paas")

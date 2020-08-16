@@ -13,7 +13,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class VegetarianUserHealthTest {
+class VegetarianUserHealthTest {
     Set<DietaryRequirement> vegetarianDietaryRequirement;
 
     @BeforeEach
@@ -22,18 +22,18 @@ public class VegetarianUserHealthTest {
     }
 
     @Test
-    public void with_normal_weight_is_healthy_if_age_is_less_than_30() {
+    void with_normal_weight_is_healthy_if_age_is_less_than_30() {
         User aHealthyVegetarian = UserObjectMother.aRandomUserWith()
                                                   .dateOfBirth(LocalDate.of(2010, 12, 4))
                                                   .weight(91)
                                                   .height(1.8)
                                                   .dietaryRequirements(vegetarianDietaryRequirement)
                                                   .build();
-        assertThat(aHealthyVegetarian.isHealthy()).isEqualTo(true);
+        assertThat(aHealthyVegetarian.isHealthy()).isTrue();
     }
 
     @Test
-    public void with_normal_weight_is_healthy_if_age_is_more_than_30_and_favorite_meal_dont_include_fats() {
+    void with_normal_weight_is_healthy_if_age_is_more_than_30_and_favorite_meal_dont_include_fats() {
         User aHealthyVegetarian = UserObjectMother.aRandomUserWith()
                                                   .dateOfBirth(LocalDate.of(1970, 12, 4))
                                                   .favoriteFoods(Set.of())
@@ -41,11 +41,11 @@ public class VegetarianUserHealthTest {
                                                   .height(1.8)
                                                   .dietaryRequirements(vegetarianDietaryRequirement)
                                                   .build();
-        assertThat(aHealthyVegetarian.isHealthy()).isEqualTo(true);
+        assertThat(aHealthyVegetarian.isHealthy()).isTrue();
     }
 
     @Test
-    public void with_normal_weight_is_unhealthy_if_age_is_more_than_30_and_favorite_foods_include_fats() {
+    void with_normal_weight_is_unhealthy_if_age_is_more_than_30_and_favorite_foods_include_fats() {
         Food fattyFood = new Food("fried chicken", FoodGroup.OIL_FAT_SUGAR, Set.of());
 
         User anUnhealthyVegetarian = UserObjectMother.aRandomUserWith()
@@ -55,6 +55,6 @@ public class VegetarianUserHealthTest {
                                                      .height(1.8)
                                                      .dietaryRequirements(vegetarianDietaryRequirement)
                                                      .build();
-        assertThat(anUnhealthyVegetarian.isHealthy()).isEqualTo(false);
+        assertThat(anUnhealthyVegetarian.isHealthy()).isFalse();
     }
 }

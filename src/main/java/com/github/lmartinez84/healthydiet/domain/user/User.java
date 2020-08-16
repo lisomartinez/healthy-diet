@@ -6,6 +6,7 @@ import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.Dietar
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.BirthDateNotInPastUserException;
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.ShortNameUserException;
 import com.github.lmartinez84.healthydiet.domain.user.exceptions.*;
+import com.github.lmartinez84.healthydiet.utils.DoubleComparerUtils;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -14,6 +15,10 @@ import java.util.Objects;
 import java.util.Set;
 
 public class User {
+    public static final int MIN_HEALTHY_BMI = 18;
+    public static final int MAX_HEALTHY_BMI = 30;
+    public static final int TO_THE_TWO = 2;
+    public static final int MIN_NAME_LENGTH = 4;
     private final String username;
     private final String firstName;
     private final String lastName;
@@ -68,7 +73,8 @@ public class User {
     private void hasBirthDateInThePast(User user) {
         if (user.dateOfBirth == null) {
             throw new NoBirthDatetUserException();
-        } else if (Period.between(user.dateOfBirth, LocalDate.now()).getDays() < 1) {
+        }
+        if (Period.between(user.dateOfBirth, LocalDate.now()).getDays() < 1) {
             throw new BirthDateNotInPastUserException();
         }
     }
@@ -88,21 +94,27 @@ public class User {
     private void isFirstNameValid(User user) {
         if (user.firstName == null) {
             throw new NullNameUserException();
-        } else if (user.firstName.isBlank()) {
+        }
+        if (user.firstName.isBlank()) {
             throw new EmptyNameUserException();
-        } else if (user.firstName.length() <= 4) {
+        }
+        if (user.firstName.length() <= MIN_NAME_LENGTH) {
             throw new ShortNameUserException();
         }
     }
 
     public double calculateBMI() {
-        return weight / Math.pow(height, 2);
+        return weight / Math.pow(height, TO_THE_TWO);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         User user = (User) o;
         return username.equals(user.username);
     }
@@ -122,7 +134,8 @@ public class User {
     }
 
     private boolean hasNormalWeight() {
-        return (calculateBMI() - 18 >= 0.0000001) && (calculateBMI() - 30 <= 0.00000001);
+        return DoubleComparerUtils.isGreaterThanOrEqual(calculateBMI(), MIN_HEALTHY_BMI)
+                && DoubleComparerUtils.isLessThanOrEqual(calculateBMI(), MAX_HEALTHY_BMI);
     }
 
     public Routine routine() {

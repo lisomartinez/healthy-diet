@@ -17,6 +17,8 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 public class Recipe {
+    public static final int MIN_CALORIES = 10;
+    public static final int MAX_CALORIES = 5000;
     private final String name;
     private final User author;
     private final Set<User> collaborators;
@@ -34,35 +36,35 @@ public class Recipe {
                   List<Recipe> subRecipes
     ) {
         this.subRecipes = subRecipes;
-        this.validateRecipe(ingredients, steps, calories);
         this.calories = calories;
         this.name = name;
         this.author = author;
         this.collaborators = collaborators;
         this.ingredients = ingredients;
         this.steps = steps;
+        this.validateRecipe(this);
     }
 
-    private void validateRecipe(Set<Ingredient> ingredients, List<Step> steps, int calories) {
-        hasAtLeastOneIngredient(ingredients);
-        hastAtLeastOneStep(steps);
-        caloriesAreBetween10and5000(calories);
+    private void validateRecipe(Recipe recipe) {
+        hasAtLeastOneIngredient(recipe);
+        hastAtLeastOneStep(recipe);
+        caloriesAreBetween10and5000(recipe);
     }
 
-    private void caloriesAreBetween10and5000(int calories) {
-        if (calories < 10 || calories > 5000) {
+    private void caloriesAreBetween10and5000(Recipe recipe) {
+        if (recipe.calories() < MIN_CALORIES || recipe.calories() > MAX_CALORIES) {
             throw new InvalidCaloriesRecipeException();
         }
     }
 
-    private void hastAtLeastOneStep(List<Step> steps) {
-        if (steps.isEmpty()) {
+    private void hastAtLeastOneStep(Recipe recipe) {
+        if (recipe.steps.isEmpty()) {
             throw new RecipeWithoutStepsException();
         }
     }
 
-    private void hasAtLeastOneIngredient(Set<Ingredient> ingredients) {
-        if (ingredients.isEmpty()) {
+    private void hasAtLeastOneIngredient(Recipe recipe) {
+        if (recipe.ingredients.isEmpty()) {
             throw new InvalidNumberOfIngredientsRecipeException();
         }
     }

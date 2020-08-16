@@ -2,7 +2,7 @@ package com.github.lmartinez84.healthydiet.domain;
 
 import java.util.Objects;
 
-public class NumericQuantity implements Quantity {
+public final class NumericQuantity implements Quantity {
     private final double quantity;
     private final Unit unit;
 
@@ -17,8 +17,12 @@ public class NumericQuantity implements Quantity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         NumericQuantity that = (NumericQuantity) o;
         return Double.compare(that.quantity, quantity) == 0 &&
                 unit.equals(that.unit);

@@ -10,8 +10,8 @@ import java.util.Set;
 
 import static com.github.lmartinez84.healthydiet.domain.recipe.RecipeBuilder.aRecipe;
 
-public class RecipeObjectMother {
-    public static Recipe createARecipeWithAuthor(User itsAuthor, Set<User> collaborators) {
+class RecipeObjectMother {
+    static Recipe createARecipeWithAuthor(User itsAuthor, Set<User> collaborators) {
         return aRecipe()
                 .name("Fried Chicken")
                 .author(itsAuthor)
@@ -22,11 +22,11 @@ public class RecipeObjectMother {
                 .build();
     }
 
-    public static User createUser(String username) {
+    static User createUser(String username) {
         return UserObjectMother.createRandomUser();
     }
 
-    public static Ingredient createRandomIngredient() {
+    static Ingredient createRandomIngredient() {
         return new Ingredient(createRandomFood(),
                               NumericQuantity.of(1.5, Unit.KILOGRAMS));
     }
@@ -36,7 +36,7 @@ public class RecipeObjectMother {
                         Set.of());
     }
 
-    public static Recipe createRecipeWithoutSteps() {
+    static Recipe createRecipeWithoutSteps() {
         return aRecipe()
                 .name("Fried Chicken")
                 .author(createUser("jp"))

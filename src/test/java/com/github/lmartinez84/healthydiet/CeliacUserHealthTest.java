@@ -10,7 +10,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CeliacUserHealthTest {
+class CeliacUserHealthTest {
     Set<DietaryRequirement> celiacDietaryRequirement;
 
     @BeforeEach
@@ -19,23 +19,23 @@ public class CeliacUserHealthTest {
     }
 
     @Test
-    public void a_celiac_with_normal_weight_is_healthy() {
+    void a_celiac_with_normal_weight_is_healthy() {
         User aHealthyCeliac = UserObjectMother.aRandomUserWith()
                                               .weight(91)
                                               .height(1.8)
                                               .dietaryRequirements(celiacDietaryRequirement)
                                               .build();
-        assertThat(aHealthyCeliac.isHealthy()).isEqualTo(true);
+        assertThat(aHealthyCeliac.isHealthy()).isTrue();
     }
 
     @Test
-    public void a_celiac_outside_normal_weight_is_unhealthy() {
+    void a_celiac_outside_normal_weight_is_unhealthy() {
         User aHealthyCeliac = UserObjectMother.aRandomUserWith()
                                               .weight(150)
                                               .height(1.8)
                                               .dietaryRequirements(celiacDietaryRequirement)
                                               .build();
-        assertThat(aHealthyCeliac.isHealthy()).isEqualTo(false);
+        assertThat(aHealthyCeliac.isHealthy()).isFalse();
     }
 
 }

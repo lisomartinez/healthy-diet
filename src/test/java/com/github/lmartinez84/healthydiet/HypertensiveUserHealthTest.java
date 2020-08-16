@@ -32,7 +32,7 @@ public class HypertensiveUserHealthTest {
                                                                                    FoodGroup.VEGETABLES_FRUITS_SEED,
                                                                                    Set.of())))
                                                     .build();
-        assertThat(aHealthyHypertensive.isHealthy()).isEqualTo(true);
+        assertThat(aHealthyHypertensive.isHealthy()).isTrue();
     }
 
     @Test
@@ -46,7 +46,7 @@ public class HypertensiveUserHealthTest {
                                                                                       Set.of())))
                                                        .routine(Routine.ACTIVE)
                                                        .build();
-        assertThat(anUnhealthyHypertensive.isHealthy()).isEqualTo(false);
+        assertThat(anUnhealthyHypertensive.isHealthy()).isFalse();
     }
 
 }

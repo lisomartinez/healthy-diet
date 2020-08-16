@@ -13,7 +13,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class VeganUserHealthTest {
+class VeganUserHealthTest {
     Set<DietaryRequirement> veganDietaryRequirement;
 
     @BeforeEach
@@ -22,7 +22,7 @@ public class VeganUserHealthTest {
     }
 
     @Test
-    public void with_normal_weight_is_healthy_if_its_favorites_fruits_include_at_least_two_fruits() {
+    void with_normal_weight_is_healthy_if_its_favorites_fruits_include_at_least_two_fruits() {
         Food apple = new Food("apple", FoodGroup.VEGETABLES_FRUITS_SEED, Set.of());
         Food orange = new Food("orange", FoodGroup.VEGETABLES_FRUITS_SEED, Set.of());
         User aHealthyVegan = UserObjectMother.aRandomUserWith()
@@ -32,6 +32,8 @@ public class VeganUserHealthTest {
                                              .height(1.8)
                                              .dietaryRequirements(veganDietaryRequirement)
                                              .build();
-        assertThat(aHealthyVegan.isHealthy()).isEqualTo(true);
+
+        assertThat(aHealthyVegan.isHealthy())
+                .isTrue();
     }
 }
