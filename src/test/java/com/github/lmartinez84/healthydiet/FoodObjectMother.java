@@ -1,8 +1,8 @@
-package com.github.lmartinez84.healthydiet.repositories;
+package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.domain.Food;
-import com.github.lmartinez84.healthydiet.domain.FoodInadequacy;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.FoodGroup;
+import com.github.lmartinez84.healthydiet.domain.recipe.Food;
+import com.github.lmartinez84.healthydiet.domain.recipe.FoodGroup;
+import com.github.lmartinez84.healthydiet.domain.recipe.FoodInadequacy;
 
 import java.util.Set;
 

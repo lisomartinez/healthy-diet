@@ -1,5 +1,6 @@
 package com.github.lmartinez84.healthydiet.domain;
 
+import com.github.lmartinez84.healthydiet.domain.recipe.Unit;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,7 +20,7 @@ class UnitTest {
 
     @Test
     void testHashCode() {
-        assertThat(Unit.KILOGRAMS.hashCode()).isEqualTo(Unit.KILOGRAMS.hashCode());
+        assertThat(Unit.KILOGRAMS).hasSameHashCodeAs(Unit.KILOGRAMS);
         assertThat(Unit.KILOGRAMS.hashCode()).isNotEqualTo(Unit.GRAMS.hashCode());
     }
 }

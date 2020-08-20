@@ -1,4 +1,4 @@
-package com.github.lmartinez84.healthydiet.repositories;
+package com.github.lmartinez84.healthydiet.domain.recipe;
 
 import com.github.lmartinez84.healthydiet.domain.Identifier;
 

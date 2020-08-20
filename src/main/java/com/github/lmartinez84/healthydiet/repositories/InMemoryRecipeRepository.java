@@ -1,6 +1,6 @@
 package com.github.lmartinez84.healthydiet.repositories;
 
-import com.github.lmartinez84.healthydiet.domain.Ingredient;
+import com.github.lmartinez84.healthydiet.domain.recipe.Ingredient;
 import com.github.lmartinez84.healthydiet.domain.recipe.Recipe;
 import com.github.lmartinez84.healthydiet.domain.recipe.RecipeId;
 import reactor.core.publisher.Flux;

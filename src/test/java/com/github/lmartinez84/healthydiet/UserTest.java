@@ -1,6 +1,6 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.domain.Routine;
+import com.github.lmartinez84.healthydiet.domain.user.Routine;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,10 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.BirthDateNotInPastUserException;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.DiabeticHasNotFavoriteFoodUserException;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.HypertensiveHasNotFavoriteFoodUserException;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.ShortNameUserException;
-import com.github.lmartinez84.healthydiet.domain.user.exceptions.*;
+import com.github.lmartinez84.healthydiet.domain.user.*;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.BirthDateNotInPastUserException;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.DiabeticHasNotFavoriteFoodUserException;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.HypertensiveHasNotFavoriteFoodUserException;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.ShortNameUserException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;

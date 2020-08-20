@@ -1,6 +1,7 @@
 package com.github.lmartinez84.healthydiet.domain;
 
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.FoodGroup;
+import com.github.lmartinez84.healthydiet.domain.recipe.Food;
+import com.github.lmartinez84.healthydiet.domain.recipe.FoodGroup;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
@@ -20,8 +21,9 @@ class FoodTest {
     void same_name_have_same_hashcode() {
         Food aFood = new Food("potato", FoodGroup.VEGETABLES_FRUITS_SEED, Set.of());
         Food otherFood = new Food("potato", FoodGroup.VEGETABLES_FRUITS_SEED, Set.of());
-        assertThat(aFood).isEqualTo(otherFood);
-        assertThat(aFood.hashCode()).isEqualTo(otherFood.hashCode());
+        assertThat(aFood)
+                .isEqualTo(otherFood)
+                .hasSameHashCodeAs(otherFood);
     }
 
     @Test

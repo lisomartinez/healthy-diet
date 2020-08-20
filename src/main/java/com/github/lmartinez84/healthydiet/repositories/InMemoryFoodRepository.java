@@ -1,6 +1,7 @@
 package com.github.lmartinez84.healthydiet.repositories;
 
-import com.github.lmartinez84.healthydiet.domain.Food;
+import com.github.lmartinez84.healthydiet.domain.recipe.Food;
+import com.github.lmartinez84.healthydiet.domain.recipe.FoodId;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

@@ -1,14 +1,10 @@
 package com.github.lmartinez84.healthydiet.domain.user;
 
 import com.github.lmartinez84.healthydiet.domain.Entity;
-import com.github.lmartinez84.healthydiet.domain.Food;
-import com.github.lmartinez84.healthydiet.domain.FoodInadequacy;
-import com.github.lmartinez84.healthydiet.domain.Routine;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.DietaryRequirement;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.BirthDateNotInPastUserException;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.ShortNameUserException;
-import com.github.lmartinez84.healthydiet.domain.user.exceptions.*;
-import com.github.lmartinez84.healthydiet.repositories.UserId;
+import com.github.lmartinez84.healthydiet.domain.recipe.Food;
+import com.github.lmartinez84.healthydiet.domain.recipe.FoodInadequacy;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.BirthDateNotInPastUserException;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.ShortNameUserException;
 import com.github.lmartinez84.healthydiet.utils.DoubleComparerUtils;
 
 import java.time.LocalDate;

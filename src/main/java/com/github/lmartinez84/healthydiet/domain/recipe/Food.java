@@ -1,7 +1,6 @@
-package com.github.lmartinez84.healthydiet.domain;
+package com.github.lmartinez84.healthydiet.domain.recipe;
 
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.FoodGroup;
-import com.github.lmartinez84.healthydiet.repositories.FoodId;
+import com.github.lmartinez84.healthydiet.domain.Entity;
 
 import java.util.Collections;
 import java.util.Objects;

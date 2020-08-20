@@ -1,4 +1,4 @@
-package com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions;
+package com.github.lmartinez84.healthydiet.domain.user.dietary_requirement;
 
 public class DiabeticHasNotFavoriteFoodUserException extends RuntimeException {
     public DiabeticHasNotFavoriteFoodUserException() {

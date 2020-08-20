@@ -6,7 +6,7 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import reactor.test.StepVerifier;
 
-import static com.github.lmartinez84.healthydiet.repositories.FoodObjectMother.*;
+import static com.github.lmartinez84.healthydiet.FoodObjectMother.*;
 
 @Execution(ExecutionMode.CONCURRENT)
 class SearchFoodRepositoryTest extends FoodRepositoryUnitTest {

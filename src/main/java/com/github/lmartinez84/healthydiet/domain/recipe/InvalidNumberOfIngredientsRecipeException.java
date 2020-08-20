@@ -1,4 +1,4 @@
-package com.github.lmartinez84.healthydiet.domain.recipe.exceptions;
+package com.github.lmartinez84.healthydiet.domain.recipe;
 
 public class InvalidNumberOfIngredientsRecipeException extends RuntimeException {
     public InvalidNumberOfIngredientsRecipeException() {
