@@ -8,12 +8,15 @@ import com.github.lmartinez84.healthydiet.domain.recipe.exceptions.InvalidCalori
 import com.github.lmartinez84.healthydiet.domain.recipe.exceptions.InvalidNumberOfIngredientsRecipeException;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.util.List;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
+@Execution(ExecutionMode.CONCURRENT)
 class RecipeValidationTest {
     @Test
     void should_not_be_created_if_it_has_not_ingredients() {

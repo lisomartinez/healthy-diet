@@ -1,13 +1,14 @@
 package com.github.lmartinez84.healthydiet.domain;
 
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.FoodGroup;
+import com.github.lmartinez84.healthydiet.repositories.FoodId;
 
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
 
-public final class Food {
-    private final String name;
+public final class Food extends Entity<FoodId> {
+    private String name;
     private final FoodGroup group;
     private final Set<FoodInadequacy> inadequacies;
 
@@ -15,6 +16,7 @@ public final class Food {
                 FoodGroup group,
                 Set<FoodInadequacy> inadequacies
     ) {
+        super(FoodId.nullId());
         this.name = name;
         this.group = group;
         this.inadequacies = inadequacies;
@@ -25,7 +27,7 @@ public final class Food {
     }
 
     public boolean isMemberOfGroup(FoodGroup group) {
-        return this.group.equals(group);
+        return this.group == group;
     }
 
     @Override
@@ -47,5 +49,17 @@ public final class Food {
 
     public Food copy() {
         return new Food(name, group, inadequacies);
+    }
+
+    public String name() {
+        return this.name;
+    }
+
+    public FoodGroup group() {
+        return group;
+    }
+
+    public void name(String name) {
+        this.name = name;
     }
 }

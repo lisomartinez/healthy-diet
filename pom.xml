@@ -42,6 +42,7 @@
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.jacoco.xmlReportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.xmlReportPaths>
 		<sonar.language>java</sonar.language>
+		<maven.test.skip>false</maven.test.skip>
 	</properties>
 
 	<dependencies>
@@ -156,5 +157,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

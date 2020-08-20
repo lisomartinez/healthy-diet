@@ -6,9 +6,12 @@ import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.except
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.ShortNameUserException;
 import com.github.lmartinez84.healthydiet.domain.user.exceptions.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
+@Execution(ExecutionMode.CONCURRENT)
 class UserValidationTest {
     @Test
     void name_should_not_be_null() {

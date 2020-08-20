@@ -5,11 +5,14 @@ import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.Celiac
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.DietaryRequirement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Execution(ExecutionMode.CONCURRENT)
 class CeliacUserHealthTest {
     Set<DietaryRequirement> celiacDietaryRequirement;
 

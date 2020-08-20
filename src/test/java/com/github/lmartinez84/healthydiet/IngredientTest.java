@@ -3,11 +3,14 @@ package com.github.lmartinez84.healthydiet;
 import com.github.lmartinez84.healthydiet.domain.*;
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.FoodGroup;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Execution(ExecutionMode.CONCURRENT)
 class IngredientTest {
     @Test
     void an_ingredient_can_have_numeric_quantity() {
@@ -60,8 +63,10 @@ class IngredientTest {
                                                  DescriptionQuantity.of("aDescription"));
         Ingredient anSecondIngredient = new Ingredient(new Food("potato", FoodGroup.VEGETABLES_FRUITS_SEED, Set.of()),
                                                        DescriptionQuantity.of("aDescription"));
-        assertThat(anIngredient).isEqualTo(anSecondIngredient);
-        assertThat(anIngredient.hashCode()).isEqualTo(anSecondIngredient.hashCode());
+
+        assertThat(anIngredient)
+                .isEqualTo(anSecondIngredient)
+                .hasSameHashCodeAs(anSecondIngredient);
     }
 
     @Test
@@ -71,7 +76,7 @@ class IngredientTest {
         Ingredient anSecondIngredient = new Ingredient(new Food("potato", FoodGroup.VEGETABLES_FRUITS_SEED, Set.of()),
                                                        DescriptionQuantity.of("aDescription"));
         assertThat(anIngredient).isNotEqualTo(anSecondIngredient);
-        ;
+
         assertThat(anIngredient.hashCode()).isNotEqualTo(anSecondIngredient.hashCode());
 
     }

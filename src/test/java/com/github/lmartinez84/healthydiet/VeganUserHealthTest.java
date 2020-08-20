@@ -7,12 +7,15 @@ import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.FoodGr
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.VeganDietaryRequirement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Execution(ExecutionMode.CONCURRENT)
 class VeganUserHealthTest {
     Set<DietaryRequirement> veganDietaryRequirement;
 

@@ -5,6 +5,8 @@ import com.github.lmartinez84.healthydiet.domain.recipe.Recipe;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.FoodGroup;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.util.List;
 import java.util.Set;
@@ -14,6 +16,7 @@ import java.util.stream.Stream;
 import static com.github.lmartinez84.healthydiet.domain.recipe.RecipeBuilder.aRecipe;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Execution(ExecutionMode.CONCURRENT)
 class RecipeTest {
 
     @Test
@@ -131,4 +134,5 @@ class RecipeTest {
                 subRecipeInadequancies.stream()).collect(Collectors.toSet());
         assertThat(recipe.inadequateFor()).isEqualTo(totalInadequencies);
     }
+
 }

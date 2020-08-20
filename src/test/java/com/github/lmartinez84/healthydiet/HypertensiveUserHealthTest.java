@@ -8,12 +8,15 @@ import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.FoodGr
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.HypertensiveDietaryRequirement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class HypertensiveUserHealthTest {
+@Execution(ExecutionMode.CONCURRENT)
+class HypertensiveUserHealthTest {
     Set<DietaryRequirement> hypertensiveDietaryRequirement;
 
     @BeforeEach
@@ -22,7 +25,7 @@ public class HypertensiveUserHealthTest {
     }
 
     @Test
-    public void is_healthy_if_its_routine_is_intensive() {
+    void is_healthy_if_its_routine_is_intensive() {
         User aHealthyHypertensive = UserObjectMother.aRandomUserWith()
                                                     .weight(91)
                                                     .height(1.8)
@@ -36,7 +39,7 @@ public class HypertensiveUserHealthTest {
     }
 
     @Test
-    public void is_unhealthy_if_its_routine_is_not_intensive() {
+    void is_unhealthy_if_its_routine_is_not_intensive() {
         User anUnhealthyHypertensive = UserObjectMother.aRandomUserWith()
                                                        .weight(91)
                                                        .height(1.8)

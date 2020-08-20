@@ -40,4 +40,8 @@ public class Ingredient {
     public Ingredient copy() {
         return new Ingredient(food.copy(), quantity);
     }
+
+    public String name() {
+        return food.name();
+    }
 }

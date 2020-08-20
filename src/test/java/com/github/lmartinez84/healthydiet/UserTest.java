@@ -4,12 +4,15 @@ import com.github.lmartinez84.healthydiet.domain.Routine;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.time.LocalDate;
 
 import static com.github.lmartinez84.healthydiet.domain.user.UserBuilder.aUser;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Execution(ExecutionMode.CONCURRENT)
 class UserTest {
 
     private final Offset<Double> offset = Offset.offset(0.00000000001);
@@ -148,8 +151,10 @@ class UserTest {
                 .routine(Routine.ACTIVE)
                 .dateOfBirth(LocalDate.of(2001, 9, 11))
                 .build();
-        assertThat(user).isEqualTo(otherUser);
-        assertThat(user.hashCode()).isEqualTo(otherUser.hashCode());
+
+        assertThat(user)
+                .isEqualTo(otherUser)
+                .hasSameHashCodeAs(otherUser);
     }
 
     @Test

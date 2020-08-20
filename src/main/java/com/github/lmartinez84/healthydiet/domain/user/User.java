@@ -1,11 +1,14 @@
 package com.github.lmartinez84.healthydiet.domain.user;
 
+import com.github.lmartinez84.healthydiet.domain.Entity;
 import com.github.lmartinez84.healthydiet.domain.Food;
+import com.github.lmartinez84.healthydiet.domain.FoodInadequacy;
 import com.github.lmartinez84.healthydiet.domain.Routine;
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.DietaryRequirement;
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.BirthDateNotInPastUserException;
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.ShortNameUserException;
 import com.github.lmartinez84.healthydiet.domain.user.exceptions.*;
+import com.github.lmartinez84.healthydiet.repositories.UserId;
 import com.github.lmartinez84.healthydiet.utils.DoubleComparerUtils;
 
 import java.time.LocalDate;
@@ -13,14 +16,15 @@ import java.time.Period;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-public class User {
+public class User extends Entity<UserId> {
     public static final int MIN_HEALTHY_BMI = 18;
     public static final int MAX_HEALTHY_BMI = 30;
     public static final int TO_THE_TWO = 2;
     public static final int MIN_NAME_LENGTH = 4;
     private final String username;
-    private final String firstName;
+    private String firstName;
     private final String lastName;
     private final LocalDate dateOfBirth;
     private final double weight;
@@ -39,6 +43,7 @@ public class User {
                 Routine routine,
                 Set<Food> favoriteFoods
     ) {
+        super(UserId.nullId());
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -152,5 +157,35 @@ public class User {
 
     public Set<Food> favoritesFoods() {
         return Collections.unmodifiableSet(favoriteFoods);
+    }
+
+    public String username() {
+        return this.username;
+    }
+
+    public String firstName() {
+        return firstName;
+    }
+
+    public String lastName() {
+        return lastName;
+    }
+
+    public LocalDate dateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public double height() {
+        return height;
+    }
+
+    public Set<FoodInadequacy> dietaryRequirements() {
+        return dietaryRequirements.stream()
+                                  .map(DietaryRequirement::inadequacy)
+                                  .collect(Collectors.toSet());
+    }
+
+    public void firstName(String name) {
+        this.firstName = name;
     }
 }

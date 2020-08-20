@@ -1,9 +1,6 @@
 package com.github.lmartinez84.healthydiet.domain.recipe;
 
-import com.github.lmartinez84.healthydiet.domain.FoodInadequacy;
-import com.github.lmartinez84.healthydiet.domain.Ingredient;
-import com.github.lmartinez84.healthydiet.domain.RecipeWithoutStepsException;
-import com.github.lmartinez84.healthydiet.domain.Step;
+import com.github.lmartinez84.healthydiet.domain.*;
 import com.github.lmartinez84.healthydiet.domain.recipe.exceptions.InvalidCaloriesRecipeException;
 import com.github.lmartinez84.healthydiet.domain.recipe.exceptions.InvalidNumberOfIngredientsRecipeException;
 import com.github.lmartinez84.healthydiet.domain.user.User;
@@ -17,19 +14,17 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
-public class Recipe {
+public class Recipe extends Entity<RecipeId> {
     public static final int MIN_CALORIES = 10;
     public static final int MAX_CALORIES = 5000;
 
-    private final String name;
-    private final User author;
-    private final Set<User> collaborators;
-    private final Set<Ingredient> ingredients;
-    private final List<Step> steps;
-    private final int calories;
-    private List<Recipe> subRecipes;
-    private boolean copied;
-    private Recipe original;
+    protected final User author;
+    protected final Set<User> collaborators;
+    protected final Set<Ingredient> ingredients;
+    protected final List<Step> steps;
+    protected final int calories;
+    protected String name;
+    protected List<Recipe> subRecipes;
 
     public Recipe(String name,
                   User author,
@@ -39,6 +34,7 @@ public class Recipe {
                   List<Step> steps,
                   List<Recipe> subRecipes
     ) {
+        super(RecipeId.nullId());
         this.subRecipes = subRecipes;
         this.calories = calories;
         this.name = name;
@@ -46,8 +42,7 @@ public class Recipe {
         this.collaborators = collaborators;
         this.ingredients = ingredients;
         this.steps = steps;
-        this.copied = false;
-        this.original = null;
+
         this.validateRecipe(this);
     }
 
@@ -94,7 +89,8 @@ public class Recipe {
     }
 
     private Stream<Step> subRecipesSteps() {
-        return subRecipes.stream().flatMap(recipe -> recipe.steps.stream());
+        return subRecipes.stream()
+                         .flatMap(recipe -> recipe.steps().stream());
     }
 
     public int calories() {
@@ -102,15 +98,17 @@ public class Recipe {
     }
 
     private int subrecipesCalories() {
-        return subRecipes.stream().mapToInt(Recipe::calories).sum();
+        return subRecipes.stream()
+                         .mapToInt(Recipe::calories)
+                         .sum();
     }
+
 
     public Set<FoodInadequacy> inadequateFor() {
         return Stream.concat(itsInadequancies(), subRecipesInadequancies())
                      .flatMap(Stream::of)
                      .collect(toSet());
     }
-
 
     private Stream<FoodInadequacy> subRecipesInadequancies() {
         return subRecipes.stream().map(Recipe::inadequateFor)
@@ -123,23 +121,32 @@ public class Recipe {
                           .flatMap(Collection::stream);
     }
 
-    public Recipe copy(User copier) {
-        String newName = new String(this.name);
-        Set<Ingredient> newIngredients = this.ingredients.stream()
-                                                         .map(Ingredient::copy)
-                                                         .collect(toSet());
-        List<Step> newSteps = this.steps.stream()
-                                        .map(Step::copy)
-                                        .collect(toList());
+    public Recipe copy() {
+        return new Recipe(new String(this.name),
+                          author,
+                          Set.of(),
+                          calories,
+                          copyOfIngredients(),
+                          copyOfSteps(),
+                          copyOfSubRecipes());
+    }
 
-        List<Recipe> newSubRecipes = this.subRecipes.stream()
-                                                    .map(subrecipe -> subrecipe.copy(this.author))
-                                                    .collect(toList());
+    protected List<Recipe> copyOfSubRecipes() {
+        return this.subRecipes.stream()
+                              .map(Recipe::copy)
+                              .collect(toList());
+    }
 
-        Recipe copiedRecipe = new Recipe(newName, copier, Set.of(), calories, newIngredients, newSteps, newSubRecipes);
-        copiedRecipe.copied = true;
-        copiedRecipe.original = this;
-        return copiedRecipe;
+    protected List<Step> copyOfSteps() {
+        return this.steps.stream()
+                         .map(Step::copy)
+                         .collect(toList());
+    }
+
+    protected Set<Ingredient> copyOfIngredients() {
+        return this.ingredients.stream()
+                               .map(Ingredient::copy)
+                               .collect(toSet());
     }
 
     public User author() {
@@ -163,10 +170,10 @@ public class Recipe {
     }
 
     public Recipe original() {
-        if (copied) {
-            return original;
-        } else {
-            return this;
-        }
+        return this;
+    }
+
+    public void name(String name) {
+        this.name = name;
     }
 }

@@ -1,5 +1,6 @@
 package com.github.lmartinez84.healthydiet.domain.user.dietary_requirement;
 
+import com.github.lmartinez84.healthydiet.domain.FoodInadequacy;
 import com.github.lmartinez84.healthydiet.domain.Routine;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.exceptions.DiabeticHasNotFavoriteFoodUserException;
@@ -8,6 +9,12 @@ import com.github.lmartinez84.healthydiet.utils.DoubleComparerUtils;
 public class DiabeticDietaryRequirement implements DietaryRequirement {
 
     public static final int MAX_HEALTHY_WEIGHT = 70;
+    private static final FoodInadequacy inadecuacy = FoodInadequacy.DIABETIC;
+
+    @Override
+    public FoodInadequacy inadequacy() {
+        return inadecuacy;
+    }
 
     @Override
     public boolean isCompensated(User user) {

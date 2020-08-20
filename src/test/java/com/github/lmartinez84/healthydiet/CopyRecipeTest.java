@@ -1,14 +1,18 @@
 package com.github.lmartinez84.healthydiet;
 
+import com.github.lmartinez84.healthydiet.domain.recipe.CopiedRecipe;
 import com.github.lmartinez84.healthydiet.domain.recipe.Recipe;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Execution(ExecutionMode.CONCURRENT)
 class CopyRecipeTest {
 
     private User originalAuthor;
@@ -25,7 +29,7 @@ class CopyRecipeTest {
     @Test
     void copied_has_author_that_has_copied() {
         assertThat(aRecipe.author()).isEqualTo(originalAuthor);
-        Recipe copiedRecipe = aRecipe.copy(copyAuthor);
+        Recipe copiedRecipe = CopiedRecipe.from(aRecipe, copyAuthor);
         assertThatRecipeDiffersOnlyInAuthor(aRecipe, copiedRecipe);
     }
 
@@ -42,7 +46,7 @@ class CopyRecipeTest {
     void copied_has_an_empty_collaborators() {
         addRandomCollaboratorToRecipe();
 
-        Recipe copiedRecipe = aRecipe.copy(copyAuthor);
+        Recipe copiedRecipe = CopiedRecipe.from(aRecipe, copyAuthor);
 
         assertThat(aRecipe.collaborators()).isNotEmpty();
         assertThat(copiedRecipe.collaborators()).isEmpty();
@@ -56,7 +60,7 @@ class CopyRecipeTest {
     @Test
     void copied_recipe_knows_its_original() {
         addRandomCollaboratorToRecipe();
-        Recipe copiedRecipe = aRecipe.copy(copyAuthor);
+        Recipe copiedRecipe = CopiedRecipe.from(aRecipe, copyAuthor);
 
         assertThat(copiedRecipe.original()).isEqualTo(aRecipe);
     }

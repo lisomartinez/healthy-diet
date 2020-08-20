@@ -1,10 +1,18 @@
 package com.github.lmartinez84.healthydiet.domain.user.dietary_requirement;
 
+import com.github.lmartinez84.healthydiet.domain.FoodInadequacy;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 
 public class VeganDietaryRequirement implements DietaryRequirement {
 
     public static final int REQUIRED_NUMBER_OF_FRUITS = 2;
+
+    private static final FoodInadequacy inadecuacy = FoodInadequacy.VEGAN;
+
+    @Override
+    public FoodInadequacy inadequacy() {
+        return inadecuacy;
+    }
 
     @Override
     public boolean isCompensated(User user) {
