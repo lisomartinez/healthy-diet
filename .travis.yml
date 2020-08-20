@@ -9,6 +9,10 @@ notifications:
   email:
     recipients:
       - lisandromartinez@gmail.com
+cache:
+  directories:
+    - .autoconf
+    - $HOME/.m2
 install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
