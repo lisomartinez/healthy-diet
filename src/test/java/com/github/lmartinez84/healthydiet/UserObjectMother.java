@@ -1,6 +1,10 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.domain.user.*;
+import com.github.lmartinez84.healthydiet.domain.user.Routine;
+import com.github.lmartinez84.healthydiet.domain.user.User;
+import com.github.lmartinez84.healthydiet.domain.user.UserBuilder;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.DiabeticDietaryRequirement;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.HypertensiveDietaryRequirement;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 

@@ -1,5 +1,7 @@
 package com.github.lmartinez84.healthydiet.domain.recipe;
 
+import com.github.lmartinez84.healthydiet.domain.recipe.ingredient.Ingredient;
+import com.github.lmartinez84.healthydiet.domain.recipe.step.Step;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 
 import java.util.ArrayList;

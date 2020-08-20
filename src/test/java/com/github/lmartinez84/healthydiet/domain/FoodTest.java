@@ -1,7 +1,7 @@
 package com.github.lmartinez84.healthydiet.domain;
 
-import com.github.lmartinez84.healthydiet.domain.recipe.Food;
-import com.github.lmartinez84.healthydiet.domain.recipe.FoodGroup;
+import com.github.lmartinez84.healthydiet.domain.food.Food;
+import com.github.lmartinez84.healthydiet.domain.food.FoodGroup;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;

@@ -1,10 +1,10 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.domain.recipe.Food;
-import com.github.lmartinez84.healthydiet.domain.recipe.FoodGroup;
-import com.github.lmartinez84.healthydiet.domain.user.DietaryRequirement;
+import com.github.lmartinez84.healthydiet.domain.food.Food;
+import com.github.lmartinez84.healthydiet.domain.food.FoodGroup;
 import com.github.lmartinez84.healthydiet.domain.user.User;
-import com.github.lmartinez84.healthydiet.domain.user.VeganDietaryRequirement;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.DietaryRequirement;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.VeganDietaryRequirement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;

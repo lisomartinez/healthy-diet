@@ -1,6 +1,12 @@
 package com.github.lmartinez84.healthydiet.domain.recipe;
 
 import com.github.lmartinez84.healthydiet.domain.Entity;
+import com.github.lmartinez84.healthydiet.domain.food.FoodInadequacy;
+import com.github.lmartinez84.healthydiet.domain.recipe.exceptions.InvalidCaloriesRecipeException;
+import com.github.lmartinez84.healthydiet.domain.recipe.exceptions.InvalidNumberOfIngredientsRecipeException;
+import com.github.lmartinez84.healthydiet.domain.recipe.exceptions.RecipeWithoutStepsException;
+import com.github.lmartinez84.healthydiet.domain.recipe.ingredient.Ingredient;
+import com.github.lmartinez84.healthydiet.domain.recipe.step.Step;
 import com.github.lmartinez84.healthydiet.domain.user.User;
 
 import java.util.Collection;

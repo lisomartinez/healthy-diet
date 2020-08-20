@@ -1,8 +1,10 @@
 package com.github.lmartinez84.healthydiet.domain.user;
 
 import com.github.lmartinez84.healthydiet.domain.Entity;
-import com.github.lmartinez84.healthydiet.domain.recipe.Food;
-import com.github.lmartinez84.healthydiet.domain.recipe.FoodInadequacy;
+import com.github.lmartinez84.healthydiet.domain.food.Food;
+import com.github.lmartinez84.healthydiet.domain.food.FoodInadequacy;
+import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.DietaryRequirement;
+import com.github.lmartinez84.healthydiet.domain.user.exceptions.*;
 import com.github.lmartinez84.healthydiet.utils.DoubleComparerUtils;
 
 import java.time.LocalDate;

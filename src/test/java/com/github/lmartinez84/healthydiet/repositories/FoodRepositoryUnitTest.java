@@ -1,6 +1,8 @@
 package com.github.lmartinez84.healthydiet.repositories;
 
-import com.github.lmartinez84.healthydiet.domain.recipe.Food;
+import com.github.lmartinez84.healthydiet.domain.food.Food;
+import com.github.lmartinez84.healthydiet.repositories.food.FoodRepository;
+import com.github.lmartinez84.healthydiet.repositories.food.InMemoryFoodRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
