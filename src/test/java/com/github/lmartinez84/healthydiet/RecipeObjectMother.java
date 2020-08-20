@@ -1,13 +1,13 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.food.Food;
-import com.github.lmartinez84.healthydiet.recipes.domain.food.FoodGroup;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.Recipe;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.ingredient.Ingredient;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.ingredient.NumericQuantity;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.ingredient.Unit;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.step.Step;
-import com.github.lmartinez84.healthydiet.shared.domain.FoodInadequacy;
+import com.github.lmartinez84.healthydiet.food.Food;
+import com.github.lmartinez84.healthydiet.food.FoodGroup;
+import com.github.lmartinez84.healthydiet.food.FoodInadequacy;
+import com.github.lmartinez84.healthydiet.recipe.Recipe;
+import com.github.lmartinez84.healthydiet.recipe.ingredient.Ingredient;
+import com.github.lmartinez84.healthydiet.recipe.ingredient.NumericQuantity;
+import com.github.lmartinez84.healthydiet.recipe.ingredient.Unit;
+import com.github.lmartinez84.healthydiet.recipe.step.Step;
 import com.github.lmartinez84.healthydiet.user.domain.User;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -15,7 +15,7 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import java.util.List;
 import java.util.Set;
 
-import static com.github.lmartinez84.healthydiet.recipes.domain.recipe.RecipeBuilder.aRecipe;
+import static com.github.lmartinez84.healthydiet.recipe.RecipeBuilder.aRecipe;
 
 @Execution(ExecutionMode.CONCURRENT)
 public class RecipeObjectMother {

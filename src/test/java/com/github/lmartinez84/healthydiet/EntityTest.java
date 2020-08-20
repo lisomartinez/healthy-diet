@@ -1,7 +1,7 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.Recipe;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.RecipeId;
+import com.github.lmartinez84.healthydiet.recipe.Recipe;
+import com.github.lmartinez84.healthydiet.recipe.RecipeId;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;

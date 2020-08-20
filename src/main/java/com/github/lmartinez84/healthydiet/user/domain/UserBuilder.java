@@ -1,6 +1,6 @@
 package com.github.lmartinez84.healthydiet.user.domain;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.food.Food;
+import com.github.lmartinez84.healthydiet.food.Food;
 import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.DietaryRequirement;
 
 import java.time.LocalDate;

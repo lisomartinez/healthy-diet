@@ -1,4 +1,4 @@
-package com.github.lmartinez84.healthydiet.recipes.domain.recipe.ingredient;
+package com.github.lmartinez84.healthydiet.recipe.ingredient;
 
 import java.util.Objects;
 

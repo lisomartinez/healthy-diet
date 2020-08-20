@@ -1,4 +1,4 @@
-package com.github.lmartinez84.healthydiet.recipes.domain.recipe.exceptions;
+package com.github.lmartinez84.healthydiet.recipe.exceptions;
 
 public class InvalidCaloriesRecipeException extends RuntimeException {
     public InvalidCaloriesRecipeException() {

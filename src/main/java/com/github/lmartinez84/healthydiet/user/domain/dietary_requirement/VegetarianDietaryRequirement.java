@@ -1,7 +1,7 @@
 package com.github.lmartinez84.healthydiet.user.domain.dietary_requirement;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.food.FoodGroup;
-import com.github.lmartinez84.healthydiet.shared.domain.FoodInadequacy;
+import com.github.lmartinez84.healthydiet.food.FoodGroup;
+import com.github.lmartinez84.healthydiet.food.FoodInadequacy;
 import com.github.lmartinez84.healthydiet.user.domain.User;
 
 public class VegetarianDietaryRequirement implements DietaryRequirement {

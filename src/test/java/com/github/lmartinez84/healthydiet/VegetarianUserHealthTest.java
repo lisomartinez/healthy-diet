@@ -1,7 +1,7 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.food.Food;
-import com.github.lmartinez84.healthydiet.recipes.domain.food.FoodGroup;
+import com.github.lmartinez84.healthydiet.food.Food;
+import com.github.lmartinez84.healthydiet.food.FoodGroup;
 import com.github.lmartinez84.healthydiet.user.domain.User;
 import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.DietaryRequirement;
 import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.VegetarianDietaryRequirement;

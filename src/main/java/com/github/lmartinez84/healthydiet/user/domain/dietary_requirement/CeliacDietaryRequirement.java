@@ -1,6 +1,6 @@
 package com.github.lmartinez84.healthydiet.user.domain.dietary_requirement;
 
-import com.github.lmartinez84.healthydiet.shared.domain.FoodInadequacy;
+import com.github.lmartinez84.healthydiet.food.FoodInadequacy;
 import com.github.lmartinez84.healthydiet.user.domain.User;
 
 public class CeliacDietaryRequirement implements DietaryRequirement {

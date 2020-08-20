@@ -1,6 +1,6 @@
 package com.github.lmartinez84.healthydiet.domain;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.ingredient.Unit;
+import com.github.lmartinez84.healthydiet.recipe.ingredient.Unit;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

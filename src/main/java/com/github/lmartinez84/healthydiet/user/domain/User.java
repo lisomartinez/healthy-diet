@@ -1,9 +1,9 @@
 package com.github.lmartinez84.healthydiet.user.domain;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.food.Food;
+import com.github.lmartinez84.healthydiet.food.Food;
+import com.github.lmartinez84.healthydiet.food.FoodInadequacy;
 import com.github.lmartinez84.healthydiet.shared.domain.DoubleComparerUtils;
 import com.github.lmartinez84.healthydiet.shared.domain.Entity;
-import com.github.lmartinez84.healthydiet.shared.domain.FoodInadequacy;
 import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.DietaryRequirement;
 import com.github.lmartinez84.healthydiet.user.domain.exceptions.*;
 

@@ -1,11 +1,11 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.Recipe;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.RecipeBuilder;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.exceptions.InvalidCaloriesRecipeException;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.exceptions.InvalidNumberOfIngredientsRecipeException;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.exceptions.RecipeWithoutStepsException;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.step.Step;
+import com.github.lmartinez84.healthydiet.recipe.Recipe;
+import com.github.lmartinez84.healthydiet.recipe.RecipeBuilder;
+import com.github.lmartinez84.healthydiet.recipe.exceptions.InvalidCaloriesRecipeException;
+import com.github.lmartinez84.healthydiet.recipe.exceptions.InvalidNumberOfIngredientsRecipeException;
+import com.github.lmartinez84.healthydiet.recipe.exceptions.RecipeWithoutStepsException;
+import com.github.lmartinez84.healthydiet.recipe.step.Step;
 import com.github.lmartinez84.healthydiet.user.domain.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;

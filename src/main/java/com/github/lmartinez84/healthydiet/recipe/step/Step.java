@@ -1,4 +1,4 @@
-package com.github.lmartinez84.healthydiet.recipes.domain.recipe.step;
+package com.github.lmartinez84.healthydiet.recipe.step;
 
 import java.util.Objects;
 

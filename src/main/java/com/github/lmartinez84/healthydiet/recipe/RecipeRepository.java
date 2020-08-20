@@ -1,4 +1,4 @@
-package com.github.lmartinez84.healthydiet.recipes.domain.recipe;
+package com.github.lmartinez84.healthydiet.recipe;
 
 import com.github.lmartinez84.healthydiet.shared.domain.Repository;
 

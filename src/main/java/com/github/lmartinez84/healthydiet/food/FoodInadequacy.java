@@ -1,4 +1,4 @@
-package com.github.lmartinez84.healthydiet.shared.domain;
+package com.github.lmartinez84.healthydiet.food;
 
 public enum FoodInadequacy {
     VEGETARIAN("Vegetarian"),

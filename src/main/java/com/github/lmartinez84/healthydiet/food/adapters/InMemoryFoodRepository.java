@@ -1,8 +1,8 @@
-package com.github.lmartinez84.healthydiet.recipes.adapters;
+package com.github.lmartinez84.healthydiet.food.adapters;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.food.Food;
-import com.github.lmartinez84.healthydiet.recipes.domain.food.FoodId;
-import com.github.lmartinez84.healthydiet.recipes.domain.food.FoodRepository;
+import com.github.lmartinez84.healthydiet.food.Food;
+import com.github.lmartinez84.healthydiet.food.FoodId;
+import com.github.lmartinez84.healthydiet.food.FoodRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

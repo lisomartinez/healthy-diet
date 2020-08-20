@@ -1,7 +1,7 @@
-package com.github.lmartinez84.healthydiet.recipes.domain.recipe;
+package com.github.lmartinez84.healthydiet.recipe;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.ingredient.Ingredient;
-import com.github.lmartinez84.healthydiet.recipes.domain.recipe.step.Step;
+import com.github.lmartinez84.healthydiet.recipe.ingredient.Ingredient;
+import com.github.lmartinez84.healthydiet.recipe.step.Step;
 import com.github.lmartinez84.healthydiet.user.domain.User;
 
 import java.util.List;

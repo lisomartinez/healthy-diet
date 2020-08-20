@@ -1,7 +1,7 @@
-package com.github.lmartinez84.healthydiet.recipes.domain.recipe.ingredient;
+package com.github.lmartinez84.healthydiet.recipe.ingredient;
 
-import com.github.lmartinez84.healthydiet.recipes.domain.food.Food;
-import com.github.lmartinez84.healthydiet.shared.domain.FoodInadequacy;
+import com.github.lmartinez84.healthydiet.food.Food;
+import com.github.lmartinez84.healthydiet.food.FoodInadequacy;
 
 import java.util.Objects;
 import java.util.Set;

@@ -1,7 +1,7 @@
 package com.github.lmartinez84.healthydiet.user.domain.dietary_requirement;
 
+import com.github.lmartinez84.healthydiet.food.FoodInadequacy;
 import com.github.lmartinez84.healthydiet.shared.domain.DoubleComparerUtils;
-import com.github.lmartinez84.healthydiet.shared.domain.FoodInadequacy;
 import com.github.lmartinez84.healthydiet.user.domain.Routine;
 import com.github.lmartinez84.healthydiet.user.domain.User;
 import com.github.lmartinez84.healthydiet.user.domain.exceptions.DiabeticHasNotFavoriteFoodUserException;
