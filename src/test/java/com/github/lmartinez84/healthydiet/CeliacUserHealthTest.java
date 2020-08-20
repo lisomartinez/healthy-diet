@@ -1,8 +1,8 @@
 package com.github.lmartinez84.healthydiet;
 
+import com.github.lmartinez84.healthydiet.domain.user.CeliacDietaryRequirement;
 import com.github.lmartinez84.healthydiet.domain.user.DietaryRequirement;
 import com.github.lmartinez84.healthydiet.domain.user.User;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.CeliacDietaryRequirement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;

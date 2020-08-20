@@ -1,9 +1,6 @@
-package com.github.lmartinez84.healthydiet.domain.user.dietary_requirement;
+package com.github.lmartinez84.healthydiet.domain.user;
 
 import com.github.lmartinez84.healthydiet.domain.recipe.FoodInadequacy;
-import com.github.lmartinez84.healthydiet.domain.user.DietaryRequirement;
-import com.github.lmartinez84.healthydiet.domain.user.Routine;
-import com.github.lmartinez84.healthydiet.domain.user.User;
 import com.github.lmartinez84.healthydiet.utils.DoubleComparerUtils;
 
 public class DiabeticDietaryRequirement implements DietaryRequirement {

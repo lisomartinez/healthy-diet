@@ -3,8 +3,6 @@ package com.github.lmartinez84.healthydiet.domain.user;
 import com.github.lmartinez84.healthydiet.domain.Entity;
 import com.github.lmartinez84.healthydiet.domain.recipe.Food;
 import com.github.lmartinez84.healthydiet.domain.recipe.FoodInadequacy;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.BirthDateNotInPastUserException;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.ShortNameUserException;
 import com.github.lmartinez84.healthydiet.utils.DoubleComparerUtils;
 
 import java.time.LocalDate;
