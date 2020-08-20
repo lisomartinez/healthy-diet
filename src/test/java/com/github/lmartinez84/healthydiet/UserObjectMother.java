@@ -1,10 +1,10 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.domain.user.Routine;
-import com.github.lmartinez84.healthydiet.domain.user.User;
-import com.github.lmartinez84.healthydiet.domain.user.UserBuilder;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.DiabeticDietaryRequirement;
-import com.github.lmartinez84.healthydiet.domain.user.dietary_requirement.HypertensiveDietaryRequirement;
+import com.github.lmartinez84.healthydiet.user.domain.Routine;
+import com.github.lmartinez84.healthydiet.user.domain.User;
+import com.github.lmartinez84.healthydiet.user.domain.UserBuilder;
+import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.DiabeticDietaryRequirement;
+import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.HypertensiveDietaryRequirement;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.github.lmartinez84.healthydiet.domain.user.UserBuilder.aUser;
+import static com.github.lmartinez84.healthydiet.user.domain.UserBuilder.aUser;
 
 @Execution(ExecutionMode.CONCURRENT)
 public class UserObjectMother {

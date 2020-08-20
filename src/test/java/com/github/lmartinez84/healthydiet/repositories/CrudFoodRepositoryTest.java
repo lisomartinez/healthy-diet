@@ -1,9 +1,9 @@
 package com.github.lmartinez84.healthydiet.repositories;
 
 import com.github.lmartinez84.healthydiet.FoodObjectMother;
-import com.github.lmartinez84.healthydiet.domain.food.Food;
-import com.github.lmartinez84.healthydiet.domain.food.FoodId;
-import com.github.lmartinez84.healthydiet.repositories.food.FoodNotExistException;
+import com.github.lmartinez84.healthydiet.recipes.adapters.FoodNotExistException;
+import com.github.lmartinez84.healthydiet.recipes.domain.food.Food;
+import com.github.lmartinez84.healthydiet.recipes.domain.food.FoodId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;

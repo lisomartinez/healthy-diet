@@ -1,7 +1,7 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.domain.user.EmptyNameUserException;
-import com.github.lmartinez84.healthydiet.domain.user.exceptions.*;
+import com.github.lmartinez84.healthydiet.user.domain.EmptyNameUserException;
+import com.github.lmartinez84.healthydiet.user.domain.exceptions.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;

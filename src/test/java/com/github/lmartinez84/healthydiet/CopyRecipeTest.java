@@ -1,8 +1,8 @@
 package com.github.lmartinez84.healthydiet;
 
-import com.github.lmartinez84.healthydiet.domain.recipe.CopiedRecipe;
-import com.github.lmartinez84.healthydiet.domain.recipe.Recipe;
-import com.github.lmartinez84.healthydiet.domain.user.User;
+import com.github.lmartinez84.healthydiet.recipes.domain.recipe.CopiedRecipe;
+import com.github.lmartinez84.healthydiet.recipes.domain.recipe.Recipe;
+import com.github.lmartinez84.healthydiet.user.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;

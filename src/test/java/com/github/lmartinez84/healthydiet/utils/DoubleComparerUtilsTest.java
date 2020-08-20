@@ -1,5 +1,6 @@
 package com.github.lmartinez84.healthydiet.utils;
 
+import com.github.lmartinez84.healthydiet.shared.domain.DoubleComparerUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

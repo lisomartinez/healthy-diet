@@ -1,8 +1,8 @@
 package com.github.lmartinez84.healthydiet.repositories;
 
-import com.github.lmartinez84.healthydiet.domain.user.User;
-import com.github.lmartinez84.healthydiet.repositories.user.InMemoryUserRepository;
-import com.github.lmartinez84.healthydiet.repositories.user.UserRepository;
+import com.github.lmartinez84.healthydiet.user.adapters.InMemoryUserRepository;
+import com.github.lmartinez84.healthydiet.user.domain.User;
+import com.github.lmartinez84.healthydiet.user.domain.UserRepository;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.parallel.Execution;
