@@ -10,6 +10,7 @@ import com.github.lmartinez84.healthydiet.user.domain.exceptions.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -28,6 +29,7 @@ public class User extends Entity<UserId> {
     private final Set<DietaryRequirement> dietaryRequirements;
     private final Routine routine;
     private Set<Food> favoriteFoods;
+    private Set<Food> dislikedFoods;
 
     public User(String username,
                 String firstName,
@@ -49,6 +51,7 @@ public class User extends Entity<UserId> {
         this.dietaryRequirements = dietaryRequirements;
         this.routine = routine;
         this.favoriteFoods = favoriteFoods;
+        this.dislikedFoods = new HashSet<>();
         this.validate(this);
     }
 
@@ -183,5 +186,13 @@ public class User extends Entity<UserId> {
 
     public void firstName(String name) {
         this.firstName = name;
+    }
+
+    public void addDislikedFood(Food food) {
+        this.dislikedFoods.add(food);
+    }
+
+    public Set<Food> dislikedFoods() {
+        return dislikedFoods;
     }
 }

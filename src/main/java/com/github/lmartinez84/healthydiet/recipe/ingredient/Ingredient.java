@@ -47,4 +47,16 @@ public class Ingredient {
     public String name() {
         return food.name();
     }
+
+    public Food food() {
+        return food.copy();
+    }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "food=" + food +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

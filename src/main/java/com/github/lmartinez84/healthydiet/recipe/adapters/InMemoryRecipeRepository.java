@@ -73,4 +73,9 @@ public class InMemoryRecipeRepository implements RecipeRepository {
     private boolean isValueInvalid(String value) {
         return value == null || value.isBlank();
     }
+
+    @Override
+    public Flux<Recipe> findBy(Predicate<Recipe> criteria) {
+        return Flux.fromStream(recipes.values().stream().filter(criteria));
+    }
 }

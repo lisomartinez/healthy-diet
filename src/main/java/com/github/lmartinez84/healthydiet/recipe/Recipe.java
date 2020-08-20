@@ -9,10 +9,7 @@ import com.github.lmartinez84.healthydiet.recipe.step.Step;
 import com.github.lmartinez84.healthydiet.shared.domain.Entity;
 import com.github.lmartinez84.healthydiet.user.domain.User;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -179,5 +176,36 @@ public class Recipe extends Entity<RecipeId> {
 
     public void name(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "author=" + author +
+                ", collaborators=" + collaborators +
+                ", ingredients=" + ingredients +
+                ", steps=" + steps +
+                ", calories=" + calories +
+                ", name='" + name + '\'' +
+                ", subRecipes=" + subRecipes +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Recipe recipe = (Recipe) o;
+        return author.equals(recipe.author) &&
+                name.equals(recipe.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(author, name);
     }
 }

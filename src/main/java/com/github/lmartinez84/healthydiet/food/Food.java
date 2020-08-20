@@ -61,4 +61,13 @@ public final class Food extends Entity<FoodId> {
     public void name(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "name='" + name + '\'' +
+                ", group=" + group +
+                ", inadequacies=" + inadequacies +
+                '}';
+    }
 }

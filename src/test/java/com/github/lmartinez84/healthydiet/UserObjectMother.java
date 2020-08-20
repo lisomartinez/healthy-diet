@@ -5,6 +5,8 @@ import com.github.lmartinez84.healthydiet.user.domain.User;
 import com.github.lmartinez84.healthydiet.user.domain.UserBuilder;
 import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.DiabeticDietaryRequirement;
 import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.HypertensiveDietaryRequirement;
+import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.VeganDietaryRequirement;
+import com.github.lmartinez84.healthydiet.user.domain.dietary_requirement.VegetarianDietaryRequirement;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
@@ -153,6 +155,7 @@ public class UserObjectMother {
                           .build();
     }
 
+
     public static User hypertensiveUserWithoutFavoriteFood() {
         return UserBuilder.aUser()
                           .firstName("Juan pablo" + ThreadLocalRandom.current().nextInt())
@@ -175,6 +178,20 @@ public class UserObjectMother {
                           .height(1.8)
                           .dateOfBirth(LocalDate.of(2001, 9, 11))
                           .routine(Routine.ACTIVE)
+                          .dietaryRequirements(Set.of(new DiabeticDietaryRequirement()))
+                          .build();
+    }
+
+    public static User diabeticUser() {
+        return UserBuilder.aUser()
+                          .firstName("Juan pablo" + ThreadLocalRandom.current().nextInt())
+                          .lastName("Perez" + ThreadLocalRandom.current().nextInt())
+                          .username("jp" + ThreadLocalRandom.current().nextInt())
+                          .weight(90)
+                          .height(1.8)
+                          .dateOfBirth(LocalDate.of(2001, 9, 11))
+                          .routine(Routine.ACTIVE)
+                          .favoriteFoods(Set.of(FoodObjectMother.createPotato()))
                           .dietaryRequirements(Set.of(new DiabeticDietaryRequirement()))
                           .build();
     }
@@ -213,5 +230,47 @@ public class UserObjectMother {
                 .routine(Routine.ACTIVE)
                 .dateOfBirth(LocalDate.of(2001, 9, 11))
                 .build();
+    }
+
+    public static User hypertensiveUser() {
+        return UserBuilder.aUser()
+                          .firstName("Juan pablo" + ThreadLocalRandom.current().nextInt())
+                          .lastName("Perez" + ThreadLocalRandom.current().nextInt())
+                          .username("jp" + ThreadLocalRandom.current().nextInt())
+                          .weight(90)
+                          .height(1.8)
+                          .dateOfBirth(LocalDate.of(2001, 9, 11))
+                          .routine(Routine.ACTIVE)
+                          .favoriteFoods(Set.of(FoodObjectMother.createPotato()))
+                          .dietaryRequirements(Set.of(new HypertensiveDietaryRequirement()))
+                          .build();
+    }
+
+    public static User veganUser() {
+        return UserBuilder.aUser()
+                          .firstName("Juan pablo" + ThreadLocalRandom.current().nextInt())
+                          .lastName("Perez" + ThreadLocalRandom.current().nextInt())
+                          .username("jp" + ThreadLocalRandom.current().nextInt())
+                          .weight(90)
+                          .height(1.8)
+                          .dateOfBirth(LocalDate.of(2001, 9, 11))
+                          .routine(Routine.ACTIVE)
+                          .favoriteFoods(Set.of(FoodObjectMother.createPotato()))
+                          .dietaryRequirements(Set.of(new VeganDietaryRequirement()))
+                          .build();
+    }
+
+    public static User vegatarianUser() {
+        return UserBuilder.aUser()
+                          .firstName("Juan pablo" + ThreadLocalRandom.current().nextInt())
+                          .lastName("Perez" + ThreadLocalRandom.current().nextInt())
+                          .username("jpa" + ThreadLocalRandom.current().nextInt())
+                          .weight(90)
+                          .height(1.8)
+                          .dateOfBirth(LocalDate.of(2001, 9, 11))
+                          .routine(Routine.ACTIVE)
+                          .favoriteFoods(Set.of(FoodObjectMother.createPotato()))
+                          .dietaryRequirements(Set.of(new VegetarianDietaryRequirement()))
+                          .build();
     }
 }

@@ -17,6 +17,7 @@ public class UserBuilder {
     private Routine routine;
     private LocalDate dateOfBirth;
     private Set<Food> favoriteFoods = new HashSet<>();
+    private Set<Food> dislikedFoods = new HashSet<>();
 
     public static UserBuilder aUser() {
         return new UserBuilder();
@@ -69,6 +70,11 @@ public class UserBuilder {
 
     public UserBuilder favoriteFoods(Set<Food> favoriteFoods) {
         this.favoriteFoods.addAll(favoriteFoods);
+        return this;
+    }
+
+    public UserBuilder dislikedFoods(Set<Food> bacon) {
+        this.dislikedFoods.addAll(bacon);
         return this;
     }
 }
